@@ -11,4 +11,7 @@ class PublicController extends Controller
             $posts = Post::all();
             return view('welcome', compact('posts'));
     }
+    public function post(Post $post){
+        return view('post', compact('post'));
+    }
 }
