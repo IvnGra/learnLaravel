@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    <div class="container mx-auto">
+    @include('partials.nav')
+    <div class="container mx-auto" mt-2>
         @yield('content')
     </div>
 </body>
