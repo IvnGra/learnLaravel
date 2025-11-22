@@ -1,3 +1,4 @@
+
 @if ($paginator->hasPages())
     <nav class="my-2 text-center">
         <div class="join">

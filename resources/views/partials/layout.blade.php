@@ -12,7 +12,7 @@
 
 <body>
     @include('partials.nav')
-    <div class="container mx-auto" mt-2>
+    <div class="container mx-auto mt-2">
         @yield('content')
     </div>
 </body>
