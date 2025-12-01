@@ -3,6 +3,7 @@
 @section('title', 'Posts')
 @section('content')
 <a href="{{ route('posts.create') }}" class="btn btn-primary">New Post</a>
+<a href="{{ route('posts.deleted') }}" class="btn btn-secondary">Deleted Posts</a>
 {{ $posts->links() }}
 <div class="bg-base-100 border border-base-content/5 rounded-box">
     <table class="table table-zebra">
@@ -22,6 +23,18 @@
                     <td>{{ $post->updated_at }}</td>
                     <td>
                         <div class="join">
+                            @if($post->trashed())
+                             <form action="{{ route('posts.restore', $post) }}" method="POST">
+                                @csrf
+                                @method('PATCH')
+                                <button type="submit" class="btn join-item btn-success">Restore</button>
+                            </form>
+                            <form action="{{ route('posts.permadestroy', $post) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn join-item btn-error">perma Delete</button>
+                            </form>
+                            @else
                             <a class="btn join-item btn-info">View</a>
                             <a href="{{ route('posts.edit', $post) }}" class="btn join-item btn-warning">Edit</a>
                             <form action="{{ route('posts.destroy', $post) }}" method="POST">
@@ -29,6 +42,7 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn join-item btn-error">Delete</button>
                             </form>
+                        @endif
                         </div>
                     </td>
                 </tr>
