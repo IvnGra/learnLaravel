@@ -1,3 +1,4 @@
+
 @extends('partials.layout')
 @section('title', 'Home')
 @section('content')
@@ -7,4 +8,5 @@
                  @include('partials.post-card')
             @endforeach
         </div>
+
 @endsection
