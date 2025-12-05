@@ -29,7 +29,15 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request)
     {
-        //
+        $validated = $request->validated();
+        
+        $comment = new Comment();
+        $comment->body = $validated['body'];
+        $comment->post_id = $validated['post_id'];
+        $comment->user_id = auth()->id();
+        $comment->save();
+        
+        return redirect()->back()->with('success', 'Comment added successfully!');
     }
 
     /**
