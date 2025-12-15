@@ -1,8 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
-        <h1 class="text-3xl font-bold">
-            {{ __('Dashboard') }}
-        </h1>
+        <div class="flex items-center justify-between">
+            <div>
+                <h1 class="text-4xl font-bold">Dashboard</h1>
+                <p class="text-base-content/70 mt-2">Welcome back, {{ Auth::user()->name }}</p>
+            </div>
+            <div class="badge badge-lg badge-primary">{{ now()->format('M j, Y') }}</div>
+        </div>
     </x-slot>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
