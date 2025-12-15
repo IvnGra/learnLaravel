@@ -10,7 +10,7 @@
     </div>
 
     <button class="btn btn-error" onclick="delete_account_modal.showModal()">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
         </svg>
         {{ __('Delete Account') }}
@@ -37,8 +37,9 @@
                     <label class="label">
                         <span class="label-text font-medium">Password</span>
                     </label>
-                    <input type="password" name="password" class="input input-bordered @error('password') input-error @enderror" 
-                           placeholder="Enter your password to confirm" required autocomplete="current-password" />
+                    <input type="password" name="password" placeholder="••••••••"
+                           class="input input-bordered @error('password') input-error @enderror" 
+                           required autocomplete="current-password" />
                     @error('password')
                         <label class="label">
                             <span class="label-text-alt text-error">{{ $message }}</span>
@@ -52,7 +53,7 @@
                     <button class="btn btn-ghost">Cancel</button>
                 </form>
                 <button class="btn btn-error" type="submit" form="delete-account">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
                     </svg>
                     Delete Account
