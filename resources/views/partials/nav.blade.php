@@ -8,15 +8,19 @@
                 </svg>
             </div>
             <ul tabindex="-1" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                <li><a>Item 1</a></li>
+                @foreach (App\Models\Category::where('category_id', null)->get() as $category)
+                    @include('partials.submenu')
+                @endforeach
                 <li>
-                    <a>Parent</a>
-                    <ul class="p-2">
-                        <li><a>Submenu 1</a></li>
-                        <li><a>Submenu 2</a></li>
-                    </ul>
+                    <details>
+                        <summary>Tags</summary>
+                        <ul class="p-2">
+                            @foreach (App\Models\Tag::orderBy('name')->get() as $tag)
+                                <li><a href="{{ route('tag', ['tag' => $tag]) }}">{{ $tag->name }}</a></li>
+                            @endforeach
+                        </ul>
+                    </details>
                 </li>
-                <li><a>Item 3</a></li>
             </ul>
         </div>
         <a href="/" class="btn btn-ghost text-xl">daisyUI</a>
@@ -26,6 +30,17 @@
             @foreach (App\Models\Category::where('category_id', null)->get() as $category)
                 @include('partials.submenu')
             @endforeach
+
+            <li>
+                <details>
+                    <summary>Tags</summary>
+                    <ul class="p-2">
+                        @foreach (App\Models\Tag::orderBy('name')->get() as $tag)
+                            <li><a href="{{ route('tag', ['tag' => $tag]) }}">{{ $tag->name }}</a></li>
+                        @endforeach
+                    </ul>
+                </details>
+            </li>
 
 
         @auth
